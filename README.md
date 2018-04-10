@@ -94,7 +94,8 @@ projection_matrix:
   cols: 4
   data: [748.174074, 0.000000, 392.540657, -44.487442, 0.000000, 748.174074, 246.805559, 0.000000, 0.000000, 0.000000, 1.000000, 0.000000]
 ```
-This package first loads the various matrices and attemps to produce rectification maps for each camera. For some reason, ROS does not store the camera intrinsic geometry directly in the files (i.e. the rotation and translation between the cameras), so we have to extract it from the projection matrix.
+
+This package first loads the various matrices and attemps to produce rectification maps for each camera. For some reason, ROS does not store the camera extrinsic geometry directly in the files (i.e. the rotation and translation between the cameras), so we have to extract it from the projection matrix.
 
 The parameters provided are a mix of unrectified and rectified. For instance, the camera matrix and distortion coefficients represent the real, unrectified, camera (i.e. what you'd get from a monocular calibration). The rectification and projection matrices encode information about the rectified stereo system.
 
