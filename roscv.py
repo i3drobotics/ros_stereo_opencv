@@ -102,9 +102,9 @@ class roscv:
         self.left_projection_matrix = self._load_projection_matrix(left_cal_file)
         self.right_projection_matrix = self._load_projection_matrix(right_cal_file)
         
-        R1, R2, P1, P2, self.Q, roi1, roi2 = cv2.stereoRectify(self.left_cameramatrix, 
+        R1, R2, P1, P2, self.Q, roi1, roi2 = cv2.stereoRectify(self.left_projection_matrix[:3, :3], 
                                                           np.zeros((5)), 
-                                                          self.right_cameramatrix,
+                                                          self.right_projection_matrix[:3, :3],
                                                           np.zeros((5)),
                                                           self.image_size,
                                                           self.R,
