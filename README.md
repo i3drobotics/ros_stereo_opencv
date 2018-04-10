@@ -4,11 +4,19 @@ A tool for working with stereo images in OpenCV using ROS calibration files
 
 This repository contains a Python class which may be useful for dealing with stereo images that have been captured in ROS.
 
+**Dependencies:** cv2 (built from OpenCV3), yaml, numpy
+
+This library was tested using Python 3.6, but should be easily convertable to 2.7 or older versions of OpenCV.
+
 # Usage
 
 Here we define a couple of convenience functions to process a stereo pair and output the point cloud as a PLY file:
 
 ```
+import cv2
+import numpy as np
+from roscv import roscv
+
 def write_ply(fn, verts, intensity):
     ply_header = '''ply
         format ascii 1.0
